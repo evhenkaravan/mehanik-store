@@ -475,28 +475,26 @@ body#mehanik-store {
 }
 
 .about-work__container {
-    width: auto
+    margin-left: 50%;
 }
 
 .container__description {
     font-family: 'AkzidenzGroteskPro-Cn';
     color: #6d727b;
-    font-weight: 450;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 24px;
 }
 
 .about-work__subheader {
-    width: 450px;
     margin-top: 18px;
     font-family: 'AkzidenzGroteskPro-Cn';
     color: #6d727b;
-    font-size: 18px;
+    font-size: 24px;
     line-height: calc(22 / 18 * 100%)
 }
 
 .about-work__blocks {
     margin-top: 32px;
-    width: 620px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -518,6 +516,10 @@ body#mehanik-store {
     color: #6d727b;
     background: #1a1a1a;
     border-radius: 8px
+}
+
+.about-work .ms-container {
+    width: initial;
 }
 
 .about-work__block:last-child {
@@ -590,7 +592,8 @@ body#mehanik-store {
     -ms-flex-pack: justify;
     justify-content: space-between;
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    width: 49%;
 }
 
 .detailing__block {
@@ -604,17 +607,17 @@ body#mehanik-store {
     -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
-    padding: 0 44px;
-    margin-bottom: 24px;
-    width: 474px;
-    height: 90px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    width: 49%;
+    height: 60px;
     font-family: 'AkzidenzGroteskPro-Cn';
     font-weight: 450;
     font-size: 18px;
     line-height: calc(21 / 18 * 100%);
     color: #6d727b;
     background: #1a1a1a;
-    border-radius: 16px
+    border-radius: 8px
 }
 
 .detailing__block span {
@@ -622,7 +625,8 @@ body#mehanik-store {
 }
 
 .manufacturer {
-    padding: 7px 0 12px 0
+    padding: 7px 0 12px 0;
+    margin-top: 20px
 }
 
 .manufacturer__container {
@@ -751,7 +755,7 @@ body#mehanik-store {
 }
 
 .car-sales__slider {
-    margin: 0 25px
+    margin: 25px 25px 0
 }
 
 .car-sales__block {
@@ -1059,7 +1063,7 @@ body#mehanik-store {
 .cart__end {
     margin-left: 12px;
     width: 100%;
-    max-width: 474px
+    maxmax-width: 474px
 }
 
 .cart__end-text {
@@ -1653,6 +1657,10 @@ body#mehanik-store {
     .production__block {
         width: 32%
     }
+
+    .detailing__container {
+        background-size: 60% auto;
+    }
 }
 
 @media (max-width: 1300px) {
@@ -1714,15 +1722,6 @@ body#mehanik-store {
         font-size: 32px;
     }
 
-    .detailing__wrapper {
-        width: 100%
-    }
-
-    .detailing__block {
-        width: 100%;
-        font-size: 20px
-    }
-
     .production__header {
         font-size: 24px
     }
@@ -1750,6 +1749,14 @@ body#mehanik-store {
 
     .contacts__phone {
         font-size: 24px
+    }
+
+    .detailing__block {
+        width: 300px;
+    }
+
+    .detailing__container {
+        background-size: 70% auto;
     }
 }
 
@@ -2039,12 +2046,6 @@ body#mehanik-store {
     }
 }
 
-@media (max-height: 950px) {
-    .auth__sign-up {
-        padding: 340px 0 150px 0
-    }
-}
-
 @media (max-width: 750px) {
     .hero__subheader {
         text-align: center;
@@ -2056,9 +2057,8 @@ body#mehanik-store {
         bottom: 48px
     }
 
-    .about-work__subheader {
-        width: 327px;
-        font-size: 14px
+    .about-work__container {
+        margin-left: 0;
     }
 
     .about-work__blocks {
@@ -2074,6 +2074,11 @@ body#mehanik-store {
         font-size: 14px
     }
 
+    .detailing__container {
+        background-position-x: center;
+        background-size: contain;
+    }
+
     .detailing {
         padding: 50px 0 48px 0
     }
@@ -2081,7 +2086,15 @@ body#mehanik-store {
     .detailing__block {
         color: #6d727b;
         font-size: 14px;
-        text-transform: none
+        text-transform: none;
+        width: 49%;
+        height: 50px;
+    }
+
+    .detailing__wrapper {
+        width: 100%;
+        height: 400px;
+        padding-top: 250px;
     }
 
     .production__blocks {
@@ -2144,6 +2157,10 @@ body#mehanik-store {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between
+    }
+
+    .container__description {
+        font-size: 18px;
     }
 }
 
@@ -2360,10 +2377,6 @@ body#mehanik-store {
         font-size: 24px
     }
 
-    .detailing__block {
-        font-size: 24px
-    }
-
     .contacts__map {
         width: 100%
     }
@@ -2450,4 +2463,25 @@ body#mehanik-store {
     .account__order-wrapper {
         width: 100%
     }
+}
+
+.car-sales__slider .glide__arrow {
+    background: #fff;
+    border: none;
+    color: #333;
+    padding: 12px;
+    opacity: .75;
+}
+
+.car-sales__slider .glide__arrow:hover {
+    opacity: 1;
+}
+
+.car-sales__slider .glide__arrow--right,
+.car-sales__slider .glide__arrow--left {
+    top: 25%
+}
+
+.car-sales__slider .glide__arrow--right svg{
+    rotate: 180deg
 }
