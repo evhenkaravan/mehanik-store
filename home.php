@@ -83,27 +83,27 @@ get_header();
                 _e('Detailing', 'mehanik-store') ?>
             </h2>
             <div class="detailing__wrapper">
-                <div class="detailing__block wow animate__fadeInUp" data-wow-delay="0.25s">
+                <div class="detailing__block wow animate__fadeInRightBig" data-wow-delay="0.25s">
                     <?php
                     _e('Removal bitumen, acids and iron from the body', 'mehanik-store') ?>
                 </div>
-                <div class="detailing__block wow animate__fadeInUp" data-wow-delay="0.5s">
+                <div class="detailing__block wow animate__fadeInRightBig" data-wow-delay="0.5s">
                     <?php
                     _e('3 Step Polishing', 'mehanik-store') ?>
                 </div>
-                <div class="detailing__block wow animate__fadeInUp" data-wow-delay="0.75s">
+                <div class="detailing__block wow animate__fadeInRightBig" data-wow-delay="0.75s">
                     <?php
                     _e('Leather Repair and Maintenance + Ceramic Coating', 'mehanik-store') ?>
                 </div>
-                <div class="detailing__block wow animate__fadeInUp" data-wow-delay="1s">
+                <div class="detailing__block wow animate__fadeInRightBig" data-wow-delay="1s">
                     <?php
                     _e('Interior parts Refurbishing', 'mehanik-store') ?>
                 </div>
-                <div class="detailing__block wow animate__fadeInUp" data-wow-delay="1.25s">
+                <div class="detailing__block wow animate__fadeInRightBig" data-wow-delay="1.25s">
                     <?php
                     _e('Wheels Refurbishing + Ceramic Coating for Wheels and Calipers', 'mehanik-store') ?>
                 </div>
-                <div class="detailing__block wow animate__fadeInUp" data-wow-delay="1.5s">
+                <div class="detailing__block wow animate__fadeInRightBig" data-wow-delay="1.5s">
                     <?php
                     _e('PPF installation for body and Interior Parts', 'mehanik-store') ?>
                 </div>

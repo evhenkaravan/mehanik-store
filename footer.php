@@ -47,7 +47,7 @@ if (apply_filters('neve_filter_toggle_content_parts', true, 'footer') === true) 
         <div class="ms-container footer__container">
             <img src="<?= trailingslashit(get_stylesheet_directory_uri()) ?>assets/img/logo.svg" alt="logo">
             <div class="footer__text">
-                Copyright © 2022 All rights reserved
+                Copyright © 2023 All rights reserved
             </div>
         </div>
     </footer>
