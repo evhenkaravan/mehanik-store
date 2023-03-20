@@ -13,10 +13,12 @@ declare(strict_types=1);
 
 require_once get_stylesheet_directory() . '/widgets/PhoneWidget.php';
 require_once get_stylesheet_directory() . '/widgets/SocialButtonWidget.php';
+require_once get_stylesheet_directory() . '/widgets/ProductionWidget.php';
 
 function mehanik_store_register_widget() {
     register_widget( 'widgets\PhoneWidget' );
     register_widget( 'widgets\SocialButtonWidget' );
+    register_widget( 'widgets\ProductionWidget' );
 }
 add_action( 'widgets_init', 'mehanik_store_register_widget' );
 
@@ -184,6 +186,14 @@ function mehanik_store_widgets_init()
             'id' => 'painting-widget',
             'before_widget' => '<div class="slider__widget wow animate__fadeInUp">',
             'after_widget' => '</div>'
+        ]
+    );
+
+    register_sidebar([
+            'name' => 'Production Cards Widget Area',
+            'id' => 'production-widget',
+            'before_sidebar' => '<div class="production__blocks">',
+            'after_sidebar' => '</div>'
         ]
     );
 }

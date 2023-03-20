@@ -104,8 +104,7 @@ get_header();
                     _e('Wheels Refurbishing + Ceramic Coating for Wheels and Calipers', 'mehanik-store') ?>
                 </div>
                 <div class="detailing__block wow animate__fadeInRightBig" data-wow-delay="1.5s">
-                    <?php
-                    _e('PPF installation for body and Interior Parts', 'mehanik-store') ?>
+                    <?php _e('PPF installation for body and Interior Parts', 'mehanik-store'); ?>
                 </div>
             </div>
         </div>
@@ -144,38 +143,11 @@ get_header();
                 <?php
                 _e('Carbon parts production for BMW M Models including Interior Parts', 'mehanik-store') ?>
             </h2>
-            <div class="production__blocks">
-                <div class="production__block wow animate__fadeInRightBig" data-wow-delay="0.25s">
-                    <div class="production__block-header">
-                        <?php
-                        _e('Carbon Parts', 'mehanik-store') ?>
-                    </div>
-                    <a class="production__block-link" href="/shop/category/carbon-fiber-performance-parts/">
-                        <?php
-                        _e('Details', 'mehanik-store') ?>
-                    </a>
-                </div>
-                <div class="production__block wow animate__fadeInRightBig" data-wow-delay="0.5s">
-                    <div class="production__block-header">
-                        <?php
-                        _e('Detailing Products', 'mehanik-store') ?>
-                    </div>
-                    <a class="production__block-link" href="/shop/category/detailing-products/">
-                        <?php
-                        _e('Details', 'mehanik-store') ?>
-                    </a>
-                </div>
-                <div class="production__block wow animate__fadeInRightBig" data-wow-delay="0.75s">
-                    <div class="production__block-header">
-                        <?php
-                        _e('OEM BMW Parts Orders', 'mehanik-store') ?>
-                    </div>
-                    <a class="production__block-link" href="/contacts">
-                        <?php
-                        _e('Details', 'mehanik-store') ?>
-                    </a>
-                </div>
-            </div>
+            <?php
+            if (is_active_sidebar('production-widget')) {
+                dynamic_sidebar('production-widget');
+            }
+            ?>
         </div>
     </section>
     <section class="car-sales" id="car-sales">
