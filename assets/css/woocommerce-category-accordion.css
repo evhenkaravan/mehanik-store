@@ -1,0 +1,57 @@
+/* - woo cat toggling elements, injected via jQuery - */
+
+/* make list item be relative, to be able to position toggle within this item, if desired */
+#secondary .widget_product_categories ul.product-categories > li.cat-parent {
+  position: relative;
+}
+/* the new toggle element wrapper, which is added via jQuery */
+#secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle {
+  cursor: pointer;
+  float:right;
+  display: inline-block;
+  text-align: center;
+  margin-left: 0.5em;
+  width: 1.5em;
+  line-height: 1em;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  transition: all 0.4s ease;
+  width: 20px;
+  height: 20px;
+  background: rgba(0,0,0,0.05);
+  text-align: center;
+  line-height: 18px;
+}
+/* when it's popped, style the toggle wrapper differently */
+#secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle.cat-popped {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  color: white;
+}
+/* toggle icon */
+#secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle::before {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 19px;
+  text-transform: none;
+  speak: none;
+  content: '+';
+  line-height: 20px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+/* toggle icon when triggered */
+#secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle.cat-popped::before {
+  content: '\2013';
+}
+/* hide sub cats by default */
+#secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle ~ ul.children {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.4s ease;
+}
+/* show sub cats when triggered via jQuery toggle */
+#secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle.cat-popped ~ ul.children {
+  max-height: 400px;
+}
