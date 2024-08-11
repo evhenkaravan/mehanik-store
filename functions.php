@@ -15,12 +15,16 @@ require_once get_stylesheet_directory() . '/widgets/PhoneWidget.php';
 require_once get_stylesheet_directory() . '/widgets/SocialButtonWidget.php';
 require_once get_stylesheet_directory() . '/widgets/ProductionWidget.php';
 
-function mehanik_store_register_widget() {
-    register_widget( 'widgets\PhoneWidget' );
-    register_widget( 'widgets\SocialButtonWidget' );
-    register_widget( 'widgets\ProductionWidget' );
+function mehanik_store_register_widget()
+{
+    register_widget('widgets\PhoneWidget');
+    register_widget('widgets\SocialButtonWidget');
+    register_widget('widgets\ProductionWidget');
 }
-add_action( 'widgets_init', 'mehanik_store_register_widget' );
+
+add_action('widgets_init', 'mehanik_store_register_widget');
+
+remove_filter('widget_types_to_hide_from_legacy_widget_block', ['BlockTypesController', 'hide_legacy_widgets_with_block_equivalent']);
 
 function mehanik_store_enqueue_styles()
 {
@@ -171,7 +175,7 @@ function mehanik_store_widgets_init()
             'name' => 'Phone Widget Area',
             'id' => 'phone-widget',
             'before_widget' => '',
-            'after_widget' => ''
+            'after_widget' => '',
         ]
     );
 
@@ -179,7 +183,7 @@ function mehanik_store_widgets_init()
             'name' => 'Social Widget Area',
             'id' => 'social-widget',
             'before_widget' => '',
-            'after_widget' => ''
+            'after_widget' => '',
         ]
     );
 
@@ -187,7 +191,7 @@ function mehanik_store_widgets_init()
             'name' => 'Painting Widget Area',
             'id' => 'painting-widget',
             'before_widget' => '<div class="slider__widget wow animate__fadeInUp">',
-            'after_widget' => '</div>'
+            'after_widget' => '</div>',
         ]
     );
 
@@ -195,7 +199,7 @@ function mehanik_store_widgets_init()
             'name' => 'Production Cards Widget Area',
             'id' => 'production-widget',
             'before_sidebar' => '<div class="production__blocks">',
-            'after_sidebar' => '</div>'
+            'after_sidebar' => '</div>',
         ]
     );
 }
