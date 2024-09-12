@@ -211,6 +211,8 @@ get_header();
                     <br/>
                     <?php
                     _e('Riga, LV-1076, Latvia', 'mehanik-store') ?>
+                    <br/>
+                    <a href="mailto:info@mehanik.lv">info@mehanik.lv</a>
                 </div>
                 <div class="contacts__social">
                     <?php
