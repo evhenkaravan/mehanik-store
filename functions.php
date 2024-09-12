@@ -34,7 +34,6 @@ function mehanik_store_enqueue_styles()
     wp_enqueue_style('custom-slick', get_stylesheet_directory_uri() . '/assets/css/libs/slick.css');
     wp_enqueue_style('custom-slick-theme', get_stylesheet_directory_uri() . '/assets/css/libs/slick-theme.css');
     wp_enqueue_style('custom-style-main', get_stylesheet_directory_uri() . '/assets/css/style.min.css', [], 1.2);
-    wp_enqueue_style('custom-woocommerce-category-list', get_stylesheet_directory_uri() . '/assets/css/woocommerce-category-accordion.css', [], 1.2);
 
     wp_enqueue_style(
         'child-style',
@@ -52,7 +51,6 @@ function mehanik_store_javascript()
     wp_enqueue_script('custom-slick', get_stylesheet_directory_uri() . '/assets/js/libs/slick.min.js', false, true);
     wp_enqueue_script('custom-myscript', get_stylesheet_directory_uri() . '/assets/js/script.js', false, true);
     wp_enqueue_script('custom-myscript', get_stylesheet_directory_uri() . '/assets/js/myscript.js', false, true);
-    wp_enqueue_script('custom-woocommerce-category-list', get_stylesheet_directory_uri() . '/assets/js/woocommerce-category-accordion.js', false, true);
 }
 
 add_action('wp_enqueue_scripts', 'mehanik_store_javascript');
