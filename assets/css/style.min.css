@@ -2100,6 +2100,7 @@ body#mehanik-store {
         min-width: 280px;
         margin: 0 auto;
         font-size: 22px;
+        line-height: initial;
     }
 
     #mehanik-store .nv-sidebar-wrap {
