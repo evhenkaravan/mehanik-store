@@ -2108,6 +2108,12 @@ body#mehanik-store {
     }
 }
 
+@media (min-width: 960px) {
+    #mehanik-store .nv-sidebar-wrap {
+        padding-top: 70px;
+    }
+}
+
 .car-sales__slider .glide__arrow {
     background: #fff;
     border: none;
