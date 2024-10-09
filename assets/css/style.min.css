@@ -2106,6 +2106,15 @@ body#mehanik-store {
     #mehanik-store .nv-sidebar-wrap {
         padding: 30px;
     }
+
+    #secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle {
+        width: 30px;
+        height: 30px;
+    }
+
+    #secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle::before {
+        font-size: 27px;
+    }
 }
 
 @media (min-width: 960px) {
