@@ -49,7 +49,7 @@ function mehanik_store_javascript()
 {
     wp_enqueue_script('custom-won', get_stylesheet_directory_uri() . '/assets/js/libs/wow.min.js', false, true);
     wp_enqueue_script('custom-slick', get_stylesheet_directory_uri() . '/assets/js/libs/slick.min.js', false, true);
-    wp_enqueue_script('custom-myscript', get_stylesheet_directory_uri() . '/assets/js/script.js', false, true);
+    wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/assets/js/script.js', false, 1.1);
     wp_enqueue_script('custom-myscript', get_stylesheet_directory_uri() . '/assets/js/myscript.js', false, true);
 }
 
