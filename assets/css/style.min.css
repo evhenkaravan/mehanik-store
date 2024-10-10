@@ -1,5 +1,9 @@
-.burger-menu__body, .overlay {
+.burger-menu__body, .overlay-loader {
     background: #000
+}
+
+.overlay-menu {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .header__link, .social__phone {
@@ -79,11 +83,11 @@ body#mehanik-store {
     padding: 0 20px
 }
 
-.overlay {
+.overlay-menu,
+.overlay-loader {
     position: fixed;
     width: 100%;
     height: 100vh;
-    z-index: 100;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -95,6 +99,13 @@ body#mehanik-store {
     justify-content: center
 }
 
+.overlay-menu {
+    z-index: 6;
+}
+
+.overlay-loader {
+    z-index: 100;
+}
 .overlay__preloader {
     width: 40px;
     -webkit-animation: 2s linear infinite prelodaerRotate;
@@ -104,7 +115,7 @@ body#mehanik-store {
 .burger-menu, .header {
     position: fixed;
     width: 100%;
-    z-index: 6
+    z-index: 7
 }
 
 @-webkit-keyframes prelodaerRotate {

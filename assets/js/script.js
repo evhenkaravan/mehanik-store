@@ -102,15 +102,17 @@ jQuery(function ($) {
         });
     }
 
-    $('.overlay').fadeOut(1000);
+    $('.overlay-loader').fadeOut(1000);
 
     $('.header__burger').click(function () {
         $(this).toggleClass('header__burger_active');
         $('.wrapper').toggleClass('wrapper--fixed');
         if ($(this).hasClass('header__burger_active')) {
             $('.burger-menu').fadeIn(500);
+            $('.overlay-menu').fadeIn(500);
         } else {
             $('.burger-menu').fadeOut(500);
+            $('.overlay-menu').fadeOut(500);
         }
     });
 });

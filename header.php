@@ -75,10 +75,11 @@ do_action('neve_body_start_after');
 <?php
 wp_body_open(); ?>
 <div class="wrapper">
-    <div class="overlay">
+    <div class="overlay-loader">
         <img class="overlay__preloader" src="<?php
         echo trailingslashit(get_stylesheet_directory_uri()) ?>assets/img/preloader.svg" alt="preloader">
     </div>
+    <div style="display: none;" class="overlay-menu"></div>
 <?php
 /**
  * Executes actions before the header tag is opened.
