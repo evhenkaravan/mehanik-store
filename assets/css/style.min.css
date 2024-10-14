@@ -2126,6 +2126,10 @@ body#mehanik-store {
     #secondary .widget_product_categories ul.product-categories > li.cat-parent .woo-cat-toggle::before {
         font-size: 27px;
     }
+
+    #secondary .widget_product_categories ul.product-categories>li.cat-parent .woo-cat-toggle.cat-popped~ul.children {
+        max-height: none;
+    }
 }
 
 @media (min-width: 960px) {
