@@ -214,6 +214,25 @@ get_header();
                     <br/>
                     <a href="mailto:info@mehanik.lv">info@mehanik.lv</a>
                 </div>
+                <div class="company__data">
+                    <?php
+                    _e('Uzņēmuma nosaukums: "Mehanik LV" SIA', 'mehanik-store') ?>
+                    <br/>
+                    <?php
+                    _e('Reģ nr: 40103178763', 'mehanik-store') ?>
+                    <br/>
+                    <?php
+                    _e('PVN nr: LV 40103178763', 'mehanik-store') ?>
+                    <br/>
+                    <?php
+                    _e('Juridiskā adrese: Rīga, Gulbju iela 35A, LV-1076', 'mehanik-store') ?>
+                    <br/>
+                    <?php
+                    _e('Tirdzniecības vietas kods: 3485', 'mehanik-store') ?>
+                    <br/>
+                    <?php
+                    _e('Atļautās kategorijas: GGU A B', 'mehanik-store') ?>
+                </div>
                 <div class="contacts__social">
                     <?php
                     if (is_active_sidebar('social-widget')) {

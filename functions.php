@@ -203,3 +203,100 @@ function mehanik_store_widgets_init()
 }
 
 add_action('widgets_init', 'mehanik_store_widgets_init');
+
+function disable_shipping_calc_on_cart( $show_shipping ) {
+    if( is_cart() ) {
+        return false;
+    }
+    return $show_shipping;
+}
+add_filter( 'woocommerce_cart_ready_to_calc_shipping', 'disable_shipping_calc_on_cart', 99 );
+
+function add_customer_price_checkbox() {
+    woocommerce_wp_checkbox( array(
+        'id'          => '_enable_customer_price',
+        'label'       => 'Enable "Your Price"',
+        'description' => 'Allow customers to set their own price on this product',
+        'desc_tip'    => true,
+    ));
+}
+add_action( 'woocommerce_product_options_general_product_data', 'add_customer_price_checkbox' );
+
+function save_customer_price_checkbox( $post_id ) {
+    $is_enabled = isset( $_POST['_enable_customer_price'] ) ? 'yes' : 'no';
+    update_post_meta( $post_id, '_enable_customer_price', $is_enabled );
+}
+add_action( 'woocommerce_process_product_meta', 'save_customer_price_checkbox' );
+
+function customer_price_input() {
+    global $product;
+    $enabled = get_post_meta( $product->get_id(), '_enable_customer_price', true );
+
+    if ( $enabled === 'yes' ) {
+        echo '<div class="customer-price-container">';
+        echo '<p><label for="customer_price">Your Price:</label>';
+        echo '<input type="number" name="customer_price" min="0" step="1"></p>';
+        echo '</div>';
+    }
+}
+add_action( 'woocommerce_before_add_to_cart_button', 'customer_price_input' );
+
+function wrap_quantity_and_button_start() {
+    echo '<div class="customer-buy-block">';
+}
+add_action( 'woocommerce_before_add_to_cart_quantity', 'wrap_quantity_and_button_start', 5 );
+
+function wrap_quantity_and_button_end() {
+    echo '</div>';
+}
+add_action( 'woocommerce_after_add_to_cart_button', 'wrap_quantity_and_button_end', 20 );
+
+function add_customer_price_to_cart( $cart_item_data, $product_id ) {
+    if ( isset( $_POST['customer_price'] ) ) {
+        $product = wc_get_product( $product_id );
+        $cart_item_data['customer_price'] = floatval( $_POST['customer_price'] );
+        $cart_item_data['original_price'] = floatval( $product->get_price() );
+    }
+    return $cart_item_data;
+}
+add_filter( 'woocommerce_add_cart_item_data', 'add_customer_price_to_cart', 10, 2 );
+
+function override_price_in_cart( $cart ) {
+    if ( is_admin() && !defined( 'DOING_AJAX' ) ) return;
+
+    // Avoid running multiple times
+    if ( did_action( 'woocommerce_before_calculate_totals' ) >= 2 ) return;
+
+    foreach ( $cart->get_cart() as $cart_item ) {
+        if ( isset( $cart_item['customer_price'] ) ) {
+            $cart_item['data']->set_price( $cart_item['customer_price'] );
+        }
+    }
+}
+add_action( 'woocommerce_before_calculate_totals', 'override_price_in_cart', 10 );
+
+function display_customer_price_note( $item_data, $cart_item ) {
+    if ( isset( $cart_item['customer_price'] ) ) {
+        $item_data[] = array(
+            'name'  => 'Customer Price',
+            'value' => wc_price( $cart_item['customer_price'] ),
+        );
+    }
+    return $item_data;
+}
+add_filter( 'woocommerce_get_item_data', 'display_customer_price_note', 10, 2 );
+
+function add_customer_price_note_to_order( $item, $cart_item_key, $values, $order ) {
+    if ( isset( $values['customer_price'] ) ) {
+        $item->add_meta_data( 'Customer Suggested Price', wc_price( $values['customer_price'] ), true );
+    }
+
+    if ( isset( $values['original_price'] ) ) {
+        $item->add_meta_data( 'Original Price', wc_price( $values['original_price'] ), true );
+    }
+
+    if ( isset( $values['custom_price'] ) && isset( $values['original_price'] ) ) {
+        $item->add_meta_data( 'Note', 'Customer chose his own price below the original.', true );
+    }
+}
+add_action( 'woocommerce_checkout_create_order_line_item', 'add_customer_price_note_to_order', 10, 4 );
