@@ -115,4 +115,28 @@ jQuery(function ($) {
             $('.overlay-menu').fadeOut(500);
         }
     });
+
+    $('.suggest-price-btn').click(function(){
+        let product_id = $('form.cart input[name="add-to-cart"]').val();
+        $('#suggest-price-popup input[name="product_id"]').val(product_id);
+        $('#suggest-price-popup').show();
+    });
+
+    $('#suggest-price-form').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: wc_add_to_cart_params.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'send_suggest_price',
+                product_id: $('#suggest-price-form input[name="product_id"]').val(),
+                contact: $('#suggest-price-form input[name="contact"]').val(),
+                suggested_price: $('#suggest-price-form input[name="suggested_price"]').val(),
+            },
+            success: function(response){
+                alert(response.data);
+                $('#suggest-price-popup').hide();
+            }
+        });
+    });
 });
