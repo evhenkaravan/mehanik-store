@@ -170,12 +170,30 @@ get_header();
                 ]);
                 foreach ($cars as $car) {
                     $carImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($car->ID), 'large');
+                    $terms = get_the_terms($car->ID, 'car_status');
+
+                    $slugs = [];
+
+                    if ($terms && !is_wp_error($terms)) {
+                        $slugs = wp_list_pluck($terms, 'slug');
+                    }
+
+                    $is_sold = in_array('sold', $slugs);
+                    $is_reserved = in_array('reserved', $slugs);
+
                     ?>
                     <div class="car-sales__block">
                         <div class="car-sales__block-body">
-                            <img class="car-sales__block-img"
-                                 src="<?= !empty($carImageUrl[0]) ? esc_url($carImageUrl[0]) : ''; ?>"
-                                 alt="1">
+                            <div class="car-image-wrapper <?php echo $is_sold ? 'sold' : ''; ?> <?php echo $is_reserved ? 'reserved' : ''; ?>">
+                                <?php if ($is_sold) : ?>
+                                    <div class="car-badge sold">SOLD</div>
+                                <?php elseif ($is_reserved) : ?>
+                                    <div class="car-badge reserved">RESERVED</div>
+                                <?php endif; ?>
+                                <img class="car-sales__block-img"
+                                     src="<?= !empty($carImageUrl[0]) ? esc_url($carImageUrl[0]) : ''; ?>"
+                                     alt="1">
+                            </div>
                             <div class="car-sales__block-wrapper">
                                 <div class="car-sales__block-header">
                                     <?= $car->post_title; ?>

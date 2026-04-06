@@ -35,7 +35,7 @@ function mehanik_store_enqueue_styles()
     wp_enqueue_style('custom-animations', get_stylesheet_directory_uri() . '/assets/css/libs/animate.min.css');
     wp_enqueue_style('custom-slick', get_stylesheet_directory_uri() . '/assets/css/libs/slick.css');
     wp_enqueue_style('custom-slick-theme', get_stylesheet_directory_uri() . '/assets/css/libs/slick-theme.css');
-    wp_enqueue_style('custom-style-main', get_stylesheet_directory_uri() . '/assets/css/style.min.css', [], 2.3);
+    wp_enqueue_style('custom-style-main', get_stylesheet_directory_uri() . '/assets/css/style.min.css', [], 2.7);
 
     wp_enqueue_style(
         'child-style',
