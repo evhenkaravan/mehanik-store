@@ -248,7 +248,7 @@ get_header();
             </div>
             <div class="contacts__end wow animate__fadeInRightBig">
                 <iframe class="contacts__map"
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5297.484718044528!2d35.0435772!3d48.4038907!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eed1093ff53b75%3A0x38b2a0ca72f3ed30!2sBoobo%20Toys%2C%20SIA!5e0!3m2!1sru!2sru!4v1645788531350!5m2!1sru!2sru"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d628.3587359423103!2d24.13945737874891!3d56.908914471152464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eed02e738128dd%3A0xa8ac66cc64ec96d0!2sMehanik%20Icon%20Workshop!5e1!3m2!1sen!2slv!4v1763937828729!5m2!1sen!2slv"
                         style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>

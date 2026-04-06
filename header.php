@@ -104,8 +104,8 @@ do_action('neve_before_header_wrapper_hook');
             </nav>
             <div class="header__wrapper burger-menu__wrapper">
                 <?php
-                    if (is_active_sidebar('phone-widget')) {
-                        dynamic_sidebar('phone-widget');
+                    if (is_active_sidebar('main-phone-widget')) {
+                        dynamic_sidebar('main-phone-widget');
                     }
                 ?>
                 <div class="header__social burger-menu__social">
@@ -139,8 +139,8 @@ do_action('neve_before_header_wrapper_hook');
             </nav>
             <div class="header__wrapper">
                 <?php
-                if (is_active_sidebar('phone-widget')) {
-                    dynamic_sidebar('phone-widget');
+                if (is_active_sidebar('main-phone-widget')) {
+                    dynamic_sidebar('main-phone-widget');
                 }
                 if (is_active_sidebar('social-widget')) {
                     dynamic_sidebar('social-widget');

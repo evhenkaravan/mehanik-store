@@ -116,14 +116,28 @@ jQuery(function ($) {
         }
     });
 
+    // Open popup
     $('.suggest-price-btn').click(function(){
-        let product_id = $('form.cart input[name="add-to-cart"]').val();
+        let product_id = $('form.cart button[name="add-to-cart"]').val();
         $('#suggest-price-popup input[name="product_id"]').val(product_id);
-        $('#suggest-price-popup').show();
+
+        $('#suggest-price-message').hide().removeClass('success error');
+        $('#suggest-price-form').show();
+
+        $('#suggest-price-overlay, #suggest-price-popup').fadeIn(200);
+        $('body').css('overflow', 'hidden');
     });
 
+    // Close popup
+    $('#suggest-price-overlay, #suggest-price-popup .popup-close').click(function(){
+        $('#suggest-price-overlay, #suggest-price-popup').fadeOut(200);
+        $('body').css('overflow', '');
+    });
+
+    // Form submission (AJAX)
     $('#suggest-price-form').submit(function(e){
         e.preventDefault();
+
         $.ajax({
             url: wc_add_to_cart_params.ajax_url,
             type: 'POST',
@@ -134,8 +148,24 @@ jQuery(function ($) {
                 suggested_price: $('#suggest-price-form input[name="suggested_price"]').val(),
             },
             success: function(response){
-                alert(response.data);
-                $('#suggest-price-popup').hide();
+                if(response.success){
+                    $('#suggest-price-form').hide();
+                    $('#suggest-price-message')
+                        .addClass('success')
+                        .html('Thank you! Your suggestion was sent. We will contact you soon.')
+                        .fadeIn(200);
+                } else {
+                    $('#suggest-price-message')
+                        .addClass('error')
+                        .html('Error: ' + response.data)
+                        .fadeIn(200);
+                }
+            },
+            error: function(){
+                $('#suggest-price-message')
+                    .addClass('error')
+                    .html('Something went wrong. Please try again later.')
+                    .fadeIn(200);
             }
         });
     });
